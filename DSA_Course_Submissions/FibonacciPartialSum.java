@@ -1,23 +1,26 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class FibonacciPartialSum {
     private static long getFibonacciPartialSumNaive(long from, long to) {
-        long sum = 0;
+        if (to <= 1)
+        return to;
 
-        long current = 0;
-        long next  = 1;
+    int previous = 0;
+    int digit = 1;
+    int sum =1;
 
-        for (long i = 0; i <= to; ++i) {
-            if (i >= from) {
-                sum += current;
-            }
-
-            long new_current = next;
-            next = next + current;
-            current = new_current;
-        }
-
-        return sum % 10;
+    for (int i = 1; i < to; i++) {
+        int temp = digit;
+        digit = (previous + digit);
+        previous = temp;
+        if(digit>=10){digit=digit%10;}
+        if(previous>=10){previous=previous%10;}
+        if(i>=from)
+        sum += digit;
+        if(sum>=10){sum%=10;}
+    }
+    
+    return sum;
     }
     
     public static void main(String[] args) {
