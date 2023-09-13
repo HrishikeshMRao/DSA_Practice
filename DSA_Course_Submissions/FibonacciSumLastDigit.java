@@ -13,8 +13,7 @@ public class FibonacciSumLastDigit {
             int temp = digit;
             digit = (previous + digit);
             previous = temp;
-            if(digit>=10){digit=digit%10;}
-            if(previous>=10){previous=previous%10;}
+            if(digit>=10){digit%=10;}
             sum += digit;
             if(sum>=10){sum%=10;}
         }

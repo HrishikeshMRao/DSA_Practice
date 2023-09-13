@@ -12,8 +12,7 @@ public class FibonacciLastDigit {
             int temp = digit;
             digit = (previous + digit);
             previous = temp;
-            if(digit>=10){digit=digit%10;}
-            if(previous>=10){previous=previous%10;}
+            if(digit>=10){digit%=10;}
         }
         
         return digit;
