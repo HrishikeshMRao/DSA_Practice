@@ -7,18 +7,15 @@ public class FibonacciSumLastDigit {
 
         int previous = 0;
         int digit = 1;
-        int sum =1;
+        int temp;
 
-        for (int i = 1; i < n; i++) {
-            int temp = digit;
+        for (long i = 1; i < n+2; i++) {
+            temp = digit;
             digit = (previous + digit);
             previous = temp;
             if(digit>=10){digit%=10;}
-            sum += digit;
-            if(sum>=10){sum%=10;}
         }
-        
-        return sum;
+        return digit-1;
     }
     
     public static void main(String[] args) {

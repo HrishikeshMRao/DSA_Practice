@@ -21,7 +21,7 @@ public class FibonacciHuge {
     private static long getFibonacciHugeNaive(long n, long m) {
         
         long pisanoPeriod = pisano(m);
-        n = n % pisanoPeriod;
+        n %= pisanoPeriod;
         long previous = 0;
         long digit = 1;
 

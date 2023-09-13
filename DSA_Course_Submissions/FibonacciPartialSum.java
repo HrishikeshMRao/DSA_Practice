@@ -5,22 +5,21 @@ public class FibonacciPartialSum {
         if (to <= 1)
         return to;
 
+        if(from==to) from =to-1;
+        
     int previous = 0;
     int digit = 1;
-    int sum =1;
+    int temp;
+    int digit_from=1;
 
-    for (int i = 1; i < to; i++) {
-        int temp = digit;
+    for (int i = 1; i < to+2; i++) {
+        temp = digit;
         digit = (previous + digit);
         previous = temp;
-        if(digit>=10){digit=digit%10;}
-        if(previous>=10){previous=previous%10;}
-        if(i>=from-1)
-        sum += digit;
-        if(sum>=10){sum%=10;}
+        if(digit>=10){digit%=10;}
+        if(i==(from+1)){digit_from=(digit-1);}
     }
-    
-    return sum;
+    return ((digit_from-(digit-1)));
     }
     
     public static void main(String[] args) {
