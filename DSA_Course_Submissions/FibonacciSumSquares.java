@@ -29,4 +29,10 @@ public class FibonacciSumSquares {
         System.out.println(s);
     }
 }
-
+int previous = 0;
+        int temp;
+        for (long i = 1; i < n+2; i++) {
+            temp = digit;
+            digit = (previous + digit)%10;
+            previous = temp;
+        }

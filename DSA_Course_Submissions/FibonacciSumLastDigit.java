@@ -4,18 +4,11 @@ public class FibonacciSumLastDigit {
     private static long getFibonacciSumNaive(long n) {
         if (n <= 1)
             return n;
-
-        int previous = 0;
-        int digit = 1;
-        int temp;
-
-        for (long i = 1; i < n+2; i++) {
-            temp = digit;
-            digit = (previous + digit);
-            previous = temp;
-            if(digit>=10){digit%=10;}
-        }
-        return digit-1;
+        long len=1;
+        long digit=(long)((Math.pow(1.618034,n+2)-Math.pow((1-1.618034), n+2))/Math.sqrt(5));
+        long dup = digit;
+        while(dup>0) {dup/=10; len*=10;}
+        return (long)((digit-1)%Math.pow(10, len));
     }
     
     public static void main(String[] args) {
